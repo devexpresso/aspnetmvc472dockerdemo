@@ -5,12 +5,12 @@ WORKDIR /app
 COPY *.sln .
 COPY aspnetmvc472dockerdemo/*.csproj ./aspnetmvc472dockerdemo/
 COPY aspnetmvc472dockerdemo/*.config ./aspnetmvc472dockerdemo/
-RUN nuget restore
+#RUN nuget restore
 
 # copy everything else and build app
 COPY aspnetmvc472dockerdemo/. ./aspnetmvc472dockerdemo/
 WORKDIR /app/aspnetmvc472dockerdemo
-RUN msbuild /p:Configuration=Release
+#RUN msbuild /p:Configuration=Release
 
 
 FROM microsoft/aspnet:4.7.2 AS runtime
